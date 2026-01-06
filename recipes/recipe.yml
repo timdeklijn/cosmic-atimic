@@ -17,10 +17,6 @@ modules:
       - source: system
         destination: / # copies files/system/* (* means everything inside it) into your image's root folder /
 
-  - type: script
-    snippets:
-      - dnf5 repolist
-      - dnf5 repoquery --available '*evdi*' '*displaylink*'
 
   - type: systemd
     system:
@@ -42,9 +38,9 @@ modules:
         - kernel-devel
         - kernel-headers
         - displaylink
-        - libevdi
+        # - libevdi
         # depending on what's provided for your Fedora/kernel:
-        - kmod-evdi
+        # - kmod-evdi
         - micro
         - starship
         - zen-browser
@@ -60,6 +56,11 @@ modules:
         # "firefox" is the main package, "firefox-langpacks" is a dependency
         # - firefox
         # - firefox-langpacks # also remove firefox dependency (not required for all packages, this is a special case)
+
+  - type: script
+    snippets:
+      - dnf5 repolist
+      - dnf5 repoquery --available '*evdi*' '*displaylink*'
 
   - type: fonts
     fonts:
