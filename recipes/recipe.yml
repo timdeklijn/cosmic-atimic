@@ -29,8 +29,16 @@ modules:
       copr:
         - atim/starship
         - alternateved/eza
+        - crashdummy/Displaylink
     install:
       packages:
+        - dkms
+        - kernel-devel
+        - kernel-headers
+        - displaylink
+        - libevdi
+        # depending on what's provided for your Fedora/kernel:
+        - kmod-evdi
         - micro
         - starship
         - tmux
