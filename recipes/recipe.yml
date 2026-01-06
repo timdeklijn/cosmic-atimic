@@ -17,6 +17,11 @@ modules:
       - source: system
         destination: / # copies files/system/* (* means everything inside it) into your image's root folder /
 
+  - type: script
+    snippets:
+      - dnf5 repolist
+      - dnf5 repoquery --available '*evdi*' '*displaylink*'
+
   - type: systemd
     system:
       masked:
@@ -30,6 +35,7 @@ modules:
         - atim/starship
         - alternateved/eza
         - crashdummy/Displaylink
+        - sneexy/zen-browser
     install:
       packages:
         - dkms
@@ -41,10 +47,8 @@ modules:
         - kmod-evdi
         - micro
         - starship
-        - tmux
+        - zen-browser
         - neovim
-        - fzf
-        - tmux
         - stow
         - nu
         - uv
@@ -70,7 +74,6 @@ modules:
         scope: system
         # If no repo information is specified, Flathub will be used by default
         install: # system flatpaks we want all users to have and not remove
-          - app.zen_browser.zen
           - md.obsidian.Obsidian
           - org.signal.Signal
           - com.dropbox.Client
