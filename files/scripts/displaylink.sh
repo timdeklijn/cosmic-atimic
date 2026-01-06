@@ -3,7 +3,7 @@
 set -oue pipefail
 
 dnf -y copr enable crashdummy/Displaylink
-dnf update 
+dnf -y update 
 dnf -y install \
   displaylink \
   dkms \

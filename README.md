@@ -41,3 +41,8 @@ These images are signed with [Sigstore](https://www.sigstore.dev/)'s [cosign](ht
 ```bash
 cosign verify --key cosign.pub ghcr.io/timdeklijn/cosmic-atimic
 ```
+
+# links
+
+- Example: https://gitlab.com/origami-linux/images
+- bluebuild: https://blue-build.org/
